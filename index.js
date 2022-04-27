@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const port = 3000;
-
+const postRoute = require('./routes/posts');
 dotenv.config();
 
 // Import Routes
@@ -23,6 +23,7 @@ app.get('/',(req, res)=>{
 
 // Route Middlewares
 app.use('/api/user',authRoute);
+app.use('/api/posts',postRoute);
 
 app.listen(port,()=>{
     console.log(`App will start on localhost:${port}`);
